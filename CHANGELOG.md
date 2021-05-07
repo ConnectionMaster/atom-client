@@ -1,5 +1,259 @@
 # Change Log
 
+## [11.0.6] - 2021-5-7
+
+### Added
+
+- Provide feedback in the UI for on-prem customers when the api server can't communicate with the broadcaster
+
+### Changed
+
+- Repo/branch names at the top of GitHub pull requests are now links to the appropriate branch on GitHub
+
+### Fixed
+
+- Addresses [#551](https://github.com/TeamCodeStream/CodeStream/issues/551) &mdash; Error compiling Less stylesheet
+- Fixes an issue where an apostrophe would get added to the end of email addresses suggested as reviewers in feedback requests
+- Fixes an issue with the display of images in comments on a GitLab merge request
+- Fixes an issue preventing you from being able to paste when editing most content types on CodeStream
+- Fixes an issue where editing an MR comment and adding a code fence results in divs being displayed
+- Fixes an issue where the code block doesn't immediately show in the merge request timeline after adding a new comment
+- Fixes an issue where you couldn't edit a merge request comment from Diff Hunks view
+- Fixes an issue with the responsiveness of the display of the Merge and Pipeline boxes in a merge request
+
+## [11.0.5] - 2021-4-29
+
+### Added
+
+- Adds the ability to toggle the display of pull request descriptions in the Pull Requests section
+
+### Changed
+
+- Establish GitLab v12.10 as the minimum required version for merge-request support
+
+### Fixed
+
+- Addresses [#502](https://github.com/TeamCodeStream/CodeStream/issues/502) &mdash; Can't checkout to the branch in a merge request
+- Fixes an issue where clicking on Diff Hunks view in a pull request would result in an error
+- Addresses [#454](https://github.com/TeamCodeStream/CodeStream/issues/454) &mdash; Default headshot display to initials when gravatar/headshot can't be loaded for on-prem users
+- Addresses [#498](https://github.com/TeamCodeStream/CodeStream/issues/498) &mdash; GitLab MR doesn't show commits created after MR is added
+- Fixes an error when creating a codemark
+- Fixes an issue where trying to view a pull request via list/tree view results in an error
+- Addresses [#429](https://github.com/TeamCodeStream/CodeStream/issues/429) &mdash; Incorrect user/repo listed at bottom of a PR
+- Fixes an issue where hitting Esc to close the comment form in a pull request exits you out of the pull request completely
+- Fixes an issue where some loading/saving messages in pull requests don't go away after completion 
+- Fixes an issue where merge requests created with unpushed branches lead to GraphQL error
+- Fixes an issue with the display of images in merge request descriptions
+- Fixes an issue replying to an existing comment in a merge request while there is a pending review
+- Fixes an issue deleting a pending review comment in a merge request
+- Fixes an issue with broken headshot display when adding a comment in a merge request
+- Fixes an issue where the "requested a review" banner in a pull request doesn't go away on submission of a review
+- Fixes an issue where WSL users can't select repo when creating a feedback reqest
+
+## [11.0.4] - 2021-4-22
+
+### Added
+
+- Adds the ability to edit a pending review comment in a GitLab merge request
+- Adds a roadblock to indicate that merge request support for GitLab Self Managed requires version 12.10.X or later
+
+### Changed
+
+- Ask user if they want to switch teams when clicking on a permalink for an item owned by a team other than the one you currently have selected
+- More efficient use of GitHub api points to prevent users from getting hit with rate-limit errors
+- Decrease the number of git operations being performed at extension startup
+- When going a quote reply in a pull/merge request, a blank line is automatically inserted before the cursor to prevent entered text from being included in the quote
+
+### Fixed
+
+- Addresses [#514](https://github.com/TeamCodeStream/CodeStream/issues/514) &mdash; Merge request not listed when using proxy
+- Addresses [#477](https://github.com/TeamCodeStream/CodeStream/issues/477) &mdash; Add messaging when not all files in a large MR will be listed
+- Fixes an issue where the issue you select via Start Work in one team, also appears in the Work In Progress section for all of your teams
+- Fixes an error when creating a pull request
+- Fixes an issue with the Open File buttons in the Changed Files section of a feedback request not working
+- Fixes an issue with creating a pull request on Bitbucket
+- Fixes an issue where collapsing/expanding sections in the Pull Requests section would cause all queries to refresh
+- Fixes an issue where clicking on a mention in a merge request opens a blank page
+- Fixes an issue where a local-changes warning would be shown when creating a pull request when there's weren't any local changes in the selected repository
+
+## [11.0.3] - 2021-4-12
+
+- Addresses [#486](https://github.com/TeamCodeStream/CodeStream/issues/486) &mdash; Unexpected error clicking on a merge request after update to 11.0
+
+## [11.0.2] - 2021-4-12
+
+### Changed
+
+- List of PRs in the Pull Requests section automatically refreshes after reconnecting to a previously disconnected service
+
+### Fixed
+
+- Addresses [#488](https://github.com/TeamCodeStream/CodeStream/issues/488) &mdash; Can't save custom MR query
+- Addresses [#486](https://github.com/TeamCodeStream/CodeStream/issues/486) &mdash; Unexpected error clicking on a merge request after update to 11.0
+- Addresses [#483](https://github.com/TeamCodeStream/CodeStream/issues/483) &mdash; Error loading git info when trying to ammend a feedback request
+- Addresses [#482](https://github.com/TeamCodeStream/CodeStream/issues/482) &mdash; Gitlab open merge request error field 'approvalsRequired'
+- Fixes field 'stages' doesn't exist on type 'Pipeline' on GitLab Self-Managed 13.2.3
+- Fixes field 'currentUser' doesn't exist on type 'Query' on GitLab Self-Managed 12.X and below
+- Fixes field 'approvalsLeft' doesn't exist on type 'MergeRequest'
+- Fixes field 'id' doesn't exist on type 'User' on GitLab Self-Managed 12.X and below
+- Addresses [#470](https://github.com/TeamCodeStream/CodeStream/issues/470) &mdash; Shouldn't be able to submit review with zero pending comments
+- Fixes an issue with the Template dropdown incorrectly being displayed when creating a PR on GitHub
+- Fixes an issue with the display of the "source branch is X commit behind the target branch" copy in a merge request
+- Fixes an issue with line breaks getting lost in the description of a feedback request
+- Fixes an issue where you can't dismiss a feedback request when opening it via a toast notification on top of an open pull request
+- Fixes an error clicking on the Files Changed tab of a pull request
+
+## [11.0.1] - 2021-4-7
+
+### Added
+
+- Adds support for [managing and reviewing GitLab merge requests](http://www.codestream.com/blog/codestream-11-0-manage-gitlab-merge-requests-code-reviews-and-issues-in-vscode-jetbrains)
+- Adds blue unread-message badges in the Feedback Requests and Codemarks sections when there are new replies
+
+### Changed
+
+- Replaced the "Reject" button in feedback requests with "Request Changes"
+- Renamed the "Needs Works" section in Feedback Requests to "Changes Requested"
+
+### Fixed
+
+- Fixes an issue that would cause blue badges to appear for codemarks/feedback requests even if they didn't have unread replies
+- Fixes an issue where Cmd + Enter submits a feedback request with no changes selected
+- Fixes an issue where you'd get prompted to review changes after changing branches
+- Fixes an issue where the Linear integration wasn't recognizing multiple teams
+- Fixes an issue where the assignees list wasn't complete when creating an issue on GitLab
+- Fixes an issue with an extraneous entry appearing in the branch dropdowns when creating a pull request
+- Fixes an issue with Shift+Click not working on Windows when trying to select a range of commits to review in a pull request
+- Fixes an issue with the Feedback menu item under the headshot menu not working
+
+## [10.7.2] - 2021-3-23
+
+### Changed
+
+- Toast notifications for commits are shown even if a feedback request already exists for the given commmit, as long as the feedback request is still open
+- The heading of the Codemarks section now shows the number of open codemarks when the section is collapsed
+
+### Fixed
+
+- Fixes an unexpected error when clicking on the Files Changed tab in a pull request
+
+## [10.7.1] - 2021-3-17
+
+### Added
+
+- Adds the ability to set up the Jira Server (v8.14.0 or later) integration using an API token
+- Ability to create a pull request against a fork on GitHub Enterprise
+
+### Changed
+
+- Local changes now only block creation of a pull request when done in the context of a feedback request, otherwise it's just a warning
+- When creating a pull request, if the diff is huge it is now not displayed by default
+- Minor change to the navigation in the sign up/in flow when authenticating via a 3rd party
+- UX improvement to the Notification Settings page
+- When a teammate proactively creates a feedback request to review a commit of yours, you are now shown as the code author for that feedback request and it will appear in the "Open" section of the Feedback Requests section
+
+### Fixed
+
+- Addresses [#348](https://github.com/TeamCodeStream/CodeStream/issues/348) &mdash; Fixes an issue with checking out to a pull request's branch when the repo name included upper case letters
+- Fixes an issue that would result in an unexpected error when clicking on a feedback request
+
+## [10.7.0] - 2021-3-9
+
+### Added
+
+- Adds toast notifications prompting you to review new commits from a teammate after you do a pull
+- Adds the ability to review changes in a pull request since your last review, or for a specific range of commits
+
+### Changed
+
+- When you resovle a codemark the modal is now automatically closed
+- When creating a feedback request from an auto-prompt, the first line of the commit message is used as the FR title and anything after a newline character goes into the description
+- Moved repository/branch information into the header of feedback requests
+- Improved support for SSH aliases to prevent "The git repository for this review is not currently open in the IDE" messages from incorrecly being displayed
+
+### Fixed
+
+- Fixes an issue with the you-don't-have-this-file warning, when you view a codemark in a file that doesn't exist in your branch, not persisting
+- Addresses [#406](https://github.com/TeamCodeStream/CodeStream/issues/406) &mdash; Inject as comment inserts at wrong marker location
+- Addresses [#338](https://github.com/TeamCodeStream/CodeStream/issues/338) &mdash; multiline code break (newline) markdown not rendering inside code block syntax
+- Fixes an issue with attaching files via copy-and-paste
+- Fixes an issue with codemarks created on Windows showing a diff for the codeblock when there wasn't one
+- Fixes an issue where pull_request_template.md files in uppercase weren't being recognized when creating a PR
+- Fixes an issue with the inline display of images with a ? in the file name
+
+## [10.6.1] - 2021-2-26
+
+### Added
+
+- Addresses [#411](https://github.com/TeamCodeStream/CodeStream/issues/411) &mdash; Case sensitive branch names
+
+### Changed
+
+- Even if Line Number is the selected sort, the sorting of the Codemarks section is always Date unless Current File is the selected filter
+
+### Fixed
+
+- Fixes an issue with connecting on on-prem services, such as GitHub Entperise and Bitbucket Server
+- Addresses [#408](https://github.com/TeamCodeStream/CodeStream/issues/408) &mdash; Codemark not showing code block with Russian characters
+- Fixes an issue when clicking on icons in the editor gutter for pull request comments from Bitbucket or GitLab
+- Fixes an issue with viewing diffs for pull requests from forks
+- Fixes an issue where manually entering triple backticks when adding a code block to a post breaks the formatting of the post
+- Fixes an issue where the contents of the Codemarks section would unecessarily reload when switching files within the same repo
+- Fixes an issue when clicking to see git diff in review window would trigger an undefined error
+
+## [10.6.0] - 2021-2-19
+
+### Added
+
+- Adds the ability to review a pull request by a specific commit
+- Adds a new onboarding tour focussed on educating new users on CodeStream's key features
+- Adds a "Shared To" section to codemarks and feedback requests indicating when the item was shared to Slack
+- Adds an [automated post to Slack](https://www.codestream.com/blog/codestream-10-6-discussion-resolutions-published-to-slack) when a shared codemark or feedback request has been resolved- Adds the feedback request title to the toast notification when the request is approved, rejected ot reopened
+
+### Fixed
+
+- Fixes an issue with “disable strict SSL” setting not working for self-hosted services
+- Fixes an issue with an HTTPS-Required popup incorrectly showing for new on-prem installations
+- Addresses [#388](https://github.com/TeamCodeStream/CodeStream/issues/388) &mdash; Codemark issue with filenames containing "+" char
+- Fixes an unexpected error when clicking on a pull request
+- Fixes an issue with the count in the heading of the Coedmarks section being incorrect when filter isn't set to the current file
+- Fixes an issue commenting in a pull request in a file in a folder that doesn't exist in your current branch 
+- Fixes an issue with the Slack integration not appearing as a green tile on the Integrations page immediately after connecting
+- Fixes an issue with the Locate button not working in a feedback request when you don't have the given repo open
+- Fixes an issue with commenting on code in files that are symlinks
+
+## [10.5.1] - 2021-2-10
+
+### Fixed
+
+- Fixes an issue that caused an 'Unexpected Error' screen on sign-in
+
+## [10.5.0] - 2021-2-9
+
+### Added
+
+- Adds checkbox to the Notifications page to control the new Feedback Request Reminder email notification
+
+### Changed
+
+- Comment codemarks can now be resolved
+- The Codemarks section of the sidebar breaks out codemarks by status (open, resolved, archived) with new colors for each
+- Default filters on the Search page are now Open Issues, Open Code Comments, and Open Feedback Requests, and is:open / is:closed advanced syntax now includes comment codemarks
+- CodeStream on-prem customers can now connect to Jira's cloud service using API tokens instead of OAuth
+
+### Fixed
+
+- Fixes issue that prevented pull request creation on github.io repositories
+- Fixes an issue with invitation codes for on-prem customers not correctly setting the CodeStream server URL for the invitee
+- Fixes an issue when commenting on a pull request that has been sitting open for more than an hour
+- Fixes a formatting issue with issues created on Asana
+
+## [10.4.3] - 2021-2-6
+
+### Fixed
+
+- Addresses [#392](https://github.com/TeamCodeStream/CodeStream/issues/392) &mdash; Codemark not showing code block when created from Windows 
+
 ## [10.4.2] - 2021-1-29
 
 ### Added
